@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  font-family: system-ui, Arial, sans-serif;
+  color: #0b1220;
+  /*got background color gradient from Google*/
+  background: radial-gradient(circle at top, #9fd3ff 0%, #56a2ff 40%, #2b6edc 100%);
+}
+
+main {
+  width: min(1000px, 100%); /*for screen resizing*/
+  padding: 24px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+}
+
+h1 {
+  margin: 0 0 18px;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+#form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+#input {
+  width: min(520px, 100%);
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 2px solid rgba(20, 20, 40, 0.15);
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#input:focus {
+  border-color: rgba(86, 11, 173, 0.6);
+  box-shadow: 0 0 0 4px rgba(86, 11, 173, 0.15);
+}
+
+/* From Uiverse.io by barisdogansutcu */
+button {
+  padding: 17px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 0;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+}
+
+button:hover {
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+}
+
+button:active {
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+#gifArea {
+  margin: 18px auto 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+/* idea from google. box in gif because gif were jumping out of container */
+#gif-div {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+#gif-div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
