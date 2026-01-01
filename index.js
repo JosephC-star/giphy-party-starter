@@ -15,20 +15,27 @@ async function getGif(gifSearch) {
     },
   });
 
+  console.log("data", response.data.data);
+
   const firstGif = response.data.data;
   if (!firstGif || firstGif.length === 0) return;
 
   const randomGif = Math.floor(Math.random() * firstGif.length);
-  return firstGif[randomGif].images.fixed_height.url;
+  return firstGif[randomGif].images.fixed_width.url;
 }
 
 function appendGif(url) {
   const newDiv = document.createElement("div");
   newDiv.classList.add("gif-div");
 
+  gifArea.style.display = "flex";
+  removeBtn.style.display = "block";
+
   const newImg = document.createElement("img");
   newImg.src = url;
   newImg.alt = "gif";
+  newImg.style.width = "200px";
+  newImg.style.height = "200px";
   newDiv.appendChild(newImg);
   gifArea.appendChild(newDiv);
 }
@@ -44,11 +51,13 @@ form.addEventListener("submit", async function (e) {
 
   appendGif(gifUrl);
 
-  userInput.value = ""; // resets the search bar ;)
-});
+  removeBtn.disabled = false;
 
+  userInput.value = "";
+});
 removeBtn.addEventListener("click", function () {
   gifArea.innerHTML = "";
+  removeBtn.disabled = true;
+  removeBtn.style.display = "none";
+  gifArea.style.display = "none";
 });
-
-// Having trouble keeping the gif contained in the div space. tried keeping them in with css but no luck. I think the gif sizes are working against me.
